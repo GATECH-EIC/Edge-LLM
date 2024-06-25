@@ -17,6 +17,14 @@ We introduce a computation- and memory-efficient LLM tuning framework, called Ed
 
   <img src="images/Edge-LLM-overview.png" height="300">
 
+
+## Installation
+To run the code, please install the dependencies using 
+
+``` bash
+pip install -r requirements.txt 
+```
+
 ## Training and Evaluation
 
 ### Layerwise Unified Compressed and Adaptive Layer Tuning
