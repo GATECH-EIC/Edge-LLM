@@ -1,0 +1,51 @@
+
+CUDA_VISIBLE_DEVICES="0" python main.py \
+    --model_name_or_path huggyllama/llama-7b \
+    --output_dir ./output/edge_llm_llama_7b \
+    --qat True \
+    --uniform_bits 8 \
+    --w_bits 4 \
+    --a_bits 4 \
+    --kv_bits 4 \
+    --pruning_scheme "unstructure" \
+    --logging_steps 10 \
+    --save_strategy steps \
+    --pruning_device 'cuda' \
+    --save_pruned_model True \
+    --pruned_model_path "./pruning/pruned_models/" \
+    --save_steps 1000 \
+    --eval_steps 500 \
+    --save_total_limit 40 \
+    --evaluation_strategy steps \
+    --eval_dataset_size 1024 \
+    --max_eval_samples 1000 \
+    --per_device_eval_batch_size 1 \
+    --eval_batch_size 4 \
+    --dataloader_num_workers 3 \
+    --group_by_length \
+    --logging_strategy steps \
+    --remove_unused_columns False \
+    --do_train \
+    --do_eval \
+    --do_wikitext2_ppl \
+    --lora_r 8 \
+    --lora_alpha 16 \
+    --bf16 \
+    --layer_wise_pruning True \
+    --pruning True \
+    --mse_file "./pruning/layer_wise_MSE_results/" \
+    --total_pruning_ratio 0.5 \
+    --warmup_ratio 0.03 \
+    --gradient_checkpointing False \
+    --dataset alpaca \
+    --source_max_len 1024 \
+    --target_max_len 256 \
+    --per_device_train_batch_size 1 \
+    --gradient_accumulation_steps 16 \
+    --report_to wandb \
+    --max_steps 10000 \
+    --learning_rate 0.0004 \
+    --adam_beta2 0.999 \
+    --max_grad_norm 0.3 \
+    --lora_dropout 0.1 \
+    --weight_decay 0.0 \
