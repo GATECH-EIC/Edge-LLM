@@ -1,0 +1,14 @@
+transformers
+accelerate
+datasets
+sentencepiece
+fairscale
+tensorboardX
+Ninja
+peft 
+tqdm 
+bitsandbytes
+shutil 
+huggingface_hub
+wandb
+pandas
